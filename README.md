@@ -32,6 +32,10 @@ And check http://172.17.0.2:8761/ :
 
 * ![capture du 2017-12-04 19-55-29](https://user-images.githubusercontent.com/11822424/33575512-2d63a10a-d93d-11e7-8687-f761a1105b7e.png)
 
+* The structure of the project is than : 
+
+* ![capture du 2017-12-04 19-53-53](https://user-images.githubusercontent.com/11822424/33575856-4695431c-d93e-11e7-9719-29c5f7b78ed7.png)
+
 * Run the maven commands clean and install :
 
 * ![capture du 2017-12-04 19-20-24](https://user-images.githubusercontent.com/11822424/33575168-03d5c8e6-d93c-11e7-8f08-056b995045ee.png)
@@ -45,6 +49,49 @@ And check http://172.17.0.2:8761/ :
 ```sh
 $ sudo docker build -f Dockerfile -t docker-product-spring-boot
 ```
+
+### Docker container for config-service (PORT 8888 ) : 
+
+* Follow the same steps and add the following content to the application.yml and bootstrap.yml : 
+
+* ![capture du 2017-12-04 19-57-18](https://user-images.githubusercontent.com/11822424/33575640-99b3dc8a-d93d-11e7-995f-d149d4404413.png)
+
+```sh
+$ sudo docker build -f Dockerfile -t docker-config-spring-boot .
+```
+
+* ![capture du 2017-12-04 21-55-41](https://user-images.githubusercontent.com/11822424/33575729-e6b06d6e-d93d-11e7-97ff-0790edf16880.png)
+
+* Detect the name of the discovery-service container in order to link it the current image :
+
+```sh
+$ sudo docker run -it --link agitated_ride:discov -p 8888:8888 docker-config-spring-boot
+```
+
+### Run product-service several instances : 
+
+* Type those two commands like so : 
+
+* ![capture du 2017-12-04 22-02-43](https://user-images.githubusercontent.com/11822424/33576061-ee766098-d93e-11e7-8da0-c3f60af973d1.png)
+
+* You should get the following output :
+
+* ![capture du 2017-12-04 22-04-24](https://user-images.githubusercontent.com/11822424/33576134-271c275c-d93f-11e7-955b-4fca8a9140e5.png)
+
+* Run the second instance of product-service ( port 8082 ) : 
+
+```sh
+$ sudo docker run -it --link affectionate_newton:config --link agitated_ride:disc -p 8082:8082 docker-product-spring-boot
+
+```
+
+* Run the third instance of product-service (port 8083 ) : 
+
+```sh
+$ sudo docker run -it --link affectionate_newton:config --link agitated_ride:disc -p 8083:8083 docker-product-spring-boot
+
+```
+
 
 
 
