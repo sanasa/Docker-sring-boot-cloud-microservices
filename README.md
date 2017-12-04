@@ -137,6 +137,35 @@ $ sudo docker ps
 * ![capture du 2017-12-04 22-23-24](https://user-images.githubusercontent.com/11822424/33576953-c337b21c-d941-11e7-8c8e-79b38ee26bd5.png)
 
 
+### Conclusion : 
+
+We can eventualy add docker-compose.yml in order to automate the launch of all containers in the microservice architecture : 
+
+```sh
+docker-discovery-spring-boot:
+  image: docker-discovery-spring-boot
+  ports:
+   - "8761:8761"
+docker-config-spring-boot:
+  image: docker-config-spring-boot
+  ports:
+   - "8888:8888"
+  links:
+   - docker-discovery-spring-boot
+docker-product-spring-boot:
+  image: docker-product-spring-boot
+  links:
+   - docker-discovery-spring-boot
+   - docker-config-spring-boot
+docker-proxy-spring-boot:
+  image: docker-proxy-spring-boot
+  ports: "9999:9999"
+  links:
+   - docker-discovery-spring-boot
+   - docker-config-spring-boot
+   
+```
+
 
 
 
