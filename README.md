@@ -122,6 +122,20 @@ $ sudo docker run -it --link agitated_ride:disc --link affectionate_newton:conf 
 
 * To test, the rest api of product in the microservice architecture head to http://172.17.0.7:9999/product-service/messages :
 
+* ![capture du 2017-12-04 22-20-38](https://user-images.githubusercontent.com/11822424/33576829-60c385b6-d941-11e7-92ec-4cc805754725.png)
+
+* And look for the response in one of the instances of product-service container :
+
+* ![capture du 2017-12-04 20-34-26](https://user-images.githubusercontent.com/11822424/33576894-9b99835c-d941-11e7-823d-b3fd2ccf83c0.png)
+
+To verify our 6 containers deployed on Docker : 
+
+```sh
+$ sudo docker ps
+```
+
+* ![capture du 2017-12-04 22-23-24](https://user-images.githubusercontent.com/11822424/33576953-c337b21c-d941-11e7-8c8e-79b38ee26bd5.png)
+
 
 
 
