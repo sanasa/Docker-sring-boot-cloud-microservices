@@ -92,6 +92,35 @@ $ sudo docker run -it --link affectionate_newton:config --link agitated_ride:dis
 
 ```
 
+* Go to http://172.17.0.2:8761/ you should see : 
+
+* ![capture du 2017-12-04 22-11-03](https://user-images.githubusercontent.com/11822424/33576416-0adec2ce-d940-11e7-8d54-6acbcbc4bc48.png)
+
+### Docker container for proxy-service ( port 9999 ) : 
+
+* Modify the content of application.yml and bootstrap.yml : 
+
+* ![capture du 2017-12-04 20-27-23](https://user-images.githubusercontent.com/11822424/33576490-4487937a-d940-11e7-800a-16b47203bfad.png)
+
+* Build and run the image : 
+
+```sh
+$ sudo docker build -f Dockerfile -t docker-proxy-spring-boot
+```
+
+* ![capture du 2017-12-04 22-15-57](https://user-images.githubusercontent.com/11822424/33576622-bad329c2-d940-11e7-8bcb-80b18b9471e1.png)
+
+
+```sh
+$ sudo docker run -it --link agitated_ride:disc --link affectionate_newton:conf -p 9999:9999 docker-proxy-spring-boot
+```
+* Go to http://172.17.0.2:8761/ you should see the proxy container registered : 
+
+* ![capture du 2017-12-04 22-17-26](https://user-images.githubusercontent.com/11822424/33576686-f6787810-d940-11e7-8df4-fd306e8d95d5.png)
+
+### Finally : 
+
+* To test, the rest api of product in the microservice architecture head to http://172.17.0.7:9999/product-service/messages :
 
 
 
