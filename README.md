@@ -1,6 +1,6 @@
 # Microservices with spring boot, cloud and Docker
 
-### Environnement :
+### Environment :
 
 * OS : Linux (Ubuntu 16)
 * IDE : Intellij IDEA ultimate 2017.2
