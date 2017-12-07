@@ -1,5 +1,17 @@
 # Microservices with spring boot, cloud and Docker
 
+### Environnement :
+
+* OS : Linux (Ubuntu 16)
+* IDE : Intellij IDEA ultimate 2017.2
+* Programming language : Java (Openjdk 8), maven (3.5.2 )
+* Container : Docker (version : 17.09 )
+
+### Architecture : 
+
+* ![capture du 2017-12-07 17-51-05](https://user-images.githubusercontent.com/11822424/33727086-503a030e-db77-11e7-9d52-e83863ec0931.png)
+
+
 ### Docker container for discovery-service (PORT 8761 ) : 
 
 ```sh
