@@ -1,0 +1,22 @@
+docker-discovery-spring-boot:
+  image: docker-discovery-spring-boot
+  ports:
+   - "8761:8761"
+docker-config-spring-boot:
+  image: docker-config-spring-boot
+  ports:
+   - "8888:8888"
+  links:
+   - docker-discovery-spring-boot
+docker-product-spring-boot:
+  image: docker-product-spring-boot
+  links:
+   - docker-discovery-spring-boot
+   - docker-config-spring-boot
+docker-proxy-spring-boot:
+  image: docker-proxy-spring-boot
+  ports: "9999:9999"
+  links:
+   - docker-discovery-spring-boot
+   - docker-config-spring-boot
+   
